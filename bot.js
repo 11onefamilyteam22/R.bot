@@ -23,6 +23,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
  const dateFormat = require('dateformat');
  const pretty = require('pretty-ms')
+ const prefix = "g!"
 ,ti={}
 ,spee={};
 
@@ -159,7 +160,7 @@ message.guild.fetchInvites()
 
 
 client.on('message', message => {
-if(message.content.startsWith('-discrim') ) {
+if(message.content.startsWith('g!discrim') ) {
      if(!message.channel.guild) return message.reply('** This command only for servers **')
 
           var args = message.content.split(" ").slice(1);
@@ -184,7 +185,7 @@ client.users.filter(u => u.discriminator == args[0]).forEach(u => {
 
 }
 
-if(message.content ===('-discrim') ) {
+if(message.content ===('g!discrim') ) {
      if(!message.channel.guild) return message.reply('** This command only for servers **')
   let sent = 0
 	let count = 1;
@@ -231,7 +232,6 @@ var mentionned = message.mentions.users.first();
     }
 });
 
-
 client.on('message', message => {
     if (message.content === "-info") {
     if(!message.channel.guild) return;
@@ -258,110 +258,6 @@ client.on('message', message => {
 
 
 
-
-    client.on('message', message => {
-
-    if(message.content.split(' ')[0] == '-sug'){
-        if (message.author.bot) return;
-
-                            let args = message.content.split(' ').slice(1).join(' ');
-                                 if (!args) return message.reply("You Have To Write A Msg !");
-
-      let embed = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: Suggestion Sent !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                    .addField("**-Sent By :**", message.author.username)
-                                                        .addField("**-Sender ID :**", message.author.id)
-                                                    .addField("**-Suggest :**", args)
-                                                    .setColor("FF0000")
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-
-
-     client.channels.get("526817594850672641").send(embed)
-      let embe = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: Suggestion Sent Successfully !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                                                                    .setColor("FF0000")
-
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-                                                    message.channel.sendEmbed(embe);
-
-
-    }
-    });
-
-
-
-
-    client.on('message', message => {
-
-    if(message.content.split(' ')[0] == '-bug'){
-        if (message.author.bot) return;
-                            let args = message.content.split(' ').slice(1).join(' ');
-                                 if (!args) return message.reply("You Have To Write A Msg !");
-
-      let embed = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: Bug Sent !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                    .addField("**-Sent By :**", message.author.username)
-                                                        .addField("**-Sender ID :**", message.author.id)
-                                                    .addField("**-Bug :**", args)
-                                                                                                    .setColor("FF0000")
-
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-
-
-     client.channels.get("526817955242180628").send(embed)
-      let embe = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: The Bug Sent Successfully !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                                                                    .setColor("FF0000")
-
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-                                                    message.channel.sendEmbed(embe);
-
-
-    }
-    });
-
-
-
-    client.on('message', message => {
-
-    if(message.content.split(' ')[0] == '-contact'){
-        if (message.author.bot) return;
-                            let args = message.content.split(' ').slice(1).join(' ');
-                            if (!args) return message.reply("You Have To Write A Msg !");
-
-      let embed = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: Suggestion Sent !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                    .addField("**-Sent By :**", message.author.username)
-                                                        .addField("**-Sender ID :**", message.author.id)
-                                                    .addField("**-Message :**", args)
-                                                                                                    .setColor("FF0000")
-
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-
-
-     client.channels.get("526818240911900703").send(embed)
-      let embe = new Discord.RichEmbed()
-                                                    .setAuthor(message.author.username, message.author.avatarURL)
-                                                    .setDescription('**__:mailbox_with_mail: Suggestion Sent Successfully !__**')
-                                                    .setThumbnail(message.author.avatarURL)
-                                                                                                    .setColor("FF0000")
-
-                                                    .setFooter(message.author.username, message.author.avatarURL)
-                                                    message.channel.sendEmbed(embe);
-
-
-    }
-    });
 
 
 
@@ -402,7 +298,7 @@ client.on('message', message => {
     ]
     client.on('message', message => {
     if (message.author.bot) return;
-    if (message.content.startsWith('-اذكار')) {
+    if (message.content.startsWith('g!اذكار')) {
       if(!message.channel.guild) return;
     var client= new Discord.RichEmbed()
     .setTitle("اذكار")
@@ -419,7 +315,7 @@ client.on('message', message => {
 
 
     client.on('message', message => {
-         if (message.content === "-sarahah") {
+         if (message.content === "g!sarahah") {
                if(!message.channel.guild) return message.reply('** This command only for servers**');
      const embed = new Discord.RichEmbed()
              .setDescription(`** 「:dove: | SARAHAH COMMANDS」**`)
@@ -446,7 +342,7 @@ client.on('message', message => {
 
 
     client.on('message', function(message) {
-    if (message.content ===  '-ccolors'){
+    if (message.content ===  'g!ccolors'){
               if (!message.member.hasPermission("MANAGE_ROLES"))  return;
 
                          if(message.guild.roles.find("name","5")) return message.reply("You're Already Have Colors ! :art:");
@@ -531,7 +427,7 @@ client.on("message", message => {
 
 
   client.on('message', (message)=>{
-          if (message.content.startsWith(`+embed`)) {
+          if (message.content.startsWith(`g!embed`)) {
                   var embed = new Discord.RichEmbed()
                   .setAuthor(client.user.username,client.user.avatarURL)
                   .setTitle("Message By " + message.author.tag)
@@ -547,7 +443,7 @@ client.on("message", message => {
 
   client.on('message', message => {
 
-      if (message.content.startsWith("رابط")) {
+      if (message.content.startsWith("g! رابط")) {
     message.channel.createInvite({
           thing: true,
           maxUses: 100,
@@ -576,7 +472,7 @@ client.on("message", message => {
 
 
   client.on('message', msg => {
-    if (msg.content.startsWith(`>warn`)) {
+    if (msg.content.startsWith(`g!warn`)) {
       if(!msg.member.hasPermission("MANAGE_MESSAGES")) return;
        let args = msg.content.split(" ").slice(1);
       if (!msg.mentions.members.first()) return msg.reply('منشن الشخص المحدد')
@@ -625,7 +521,7 @@ Server Count: __${guild.memberCount}__**`)
 
 client.on("message", async message => {
             if(!message.channel.guild) return;
-            var prefix = "!";
+            var prefix = "g!";
         if(message.content.startsWith(prefix + 'invites')) {
         var nul = 0
         var guild = message.guild
@@ -685,7 +581,7 @@ return;
 
 
 client.on('message', message => {
-	var prefix = "!";
+	var prefix = "g!";
 if (message.content.startsWith(prefix + 'tag')) {
     let args = message.content.split(" ").slice(1);
 if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
@@ -699,7 +595,7 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
 
 
 client.on('message', message => {
-	var prefix = "!";
+	var prefix = "g!";
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
@@ -740,7 +636,7 @@ msg.delete();
 });
 
 
-
+const prefix = "g!"
 client.on('message', async msg => {
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(prefix)) return undefined;
@@ -996,4 +892,4 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 
 
 
-client.login('NTI2Nzk3NDQ1NzQ1NjA2NjU3.DwKkuQ.giEPMT2Gfxt_29mvgaz_XFB4P_U');
+client.login(process.env.BOT_TOKEN);
