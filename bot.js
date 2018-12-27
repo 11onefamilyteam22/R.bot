@@ -388,7 +388,6 @@ client.on("message", message => {
 //bc online
 
 
-  var prefix = "b!";
 
   client.on("message", message => {
 
